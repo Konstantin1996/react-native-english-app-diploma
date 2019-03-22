@@ -4,32 +4,52 @@ import gstyles from '../styles/GlobalStyles'
 import styles from '../styles/TopicsScreen'
 
 export default class TopicsScreen extends Component {
-    state = {
-        topics: [
-           {'id': 1,'name': 'Перевод предложений','description':'Переводите предложения с русского на английский и наоборот'},
-           {'id': 2,'name': 'Запомнить слова','description':'Запоминайте названия слов и практикуйте свои навыки ' },
-        ]
-    }
 
-    goToTopicDetails = (topic) => {
-        this.props.navigation.navigate('TopicDetails', topic);
-    }
+   state = {
+      topics: null,
+   }
 
-    render() {
-        return (
-         <View>
-            <Text style={styles.textTheme}>Выберите тему</Text>
-            <ScrollView>
-               {
-                  this.state.topics.map((item, index) => (
-                     <TouchableOpacity key = {item.id} style={styles.itemTopic} onPress={this.goToTopicDetails.bind(this,item)}>
-                        <Text style={styles.textTheme}>{item.name}</Text>
-                     </TouchableOpacity>
-                  ))
-               }
-            </ScrollView>
-         </View>
-        )
-    }
+   componentDidMount() {
+      fetch(`http://192.168.0.153:4000/topics`)
+         .then(response => response.json())
+         .then(data => {
+            this.setState({ topics: data })
+         })
+         .catch(error => console.log(error));
+   }
+
+   goToTopicDetails = (topic) => {
+      this.props.navigation.navigate('TopicDetails', topic);
+   }
+
+   render() {
+      if (this.state.topics) {
+         console.log(`TOPICI BLYA ${this.state.topics}`);
+         return (
+            <View>
+               <Text style={styles.textTheme}>Выберите тему</Text>
+               <ScrollView>
+                  {
+                     this.state.topics.map((item, index) => (
+                        <TouchableOpacity 
+                           key={item.id} 
+                           style={styles.itemTopic} 
+                           onPress={this.goToTopicDetails.bind(this, item)}
+                        >
+                           <Text style={styles.textTheme}>{item.name}</Text>
+                        </TouchableOpacity>
+                     ))
+                  }
+               </ScrollView>
+            </View>
+         )
+      } else {
+         return (
+            <View>
+               <Text style={styles.textTheme}>Загрузка...</Text>
+            </View>
+         )
+      }
+   }
 }
 

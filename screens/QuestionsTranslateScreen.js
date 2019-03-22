@@ -11,12 +11,6 @@ export default class QuestionsTranslateScreen extends Component {
     rightAnswers: ['Мы надеемся встретить твоих друзей снова', 'В этом доме есть кот']
   }
 
-  componentWillMount() {
-    fetch('http://192.168.0.153:4000/posts')
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.log(error));
-  }
 
   checkTheAnswer = (e) => {
     let f = FuzzySet(this.state.rightAnswers);
@@ -30,6 +24,7 @@ export default class QuestionsTranslateScreen extends Component {
   render() {
     const { navigation } = this.props;
     const questionNumber = navigation.getParam('taskNumber');
+    console.log(navigation);
     return (
       <View style={gstyle.container}>
         <Text style={gstyle.globalText}> Переведите предложение: </Text>

@@ -25,7 +25,12 @@ export default class TopicDetailsSreen extends Component {
           <Text style={gstyle.globalText}>{desc}</Text>
         </View>
         <View style={styles.btnContainer}>
-          <Button title="Поехали!" onPress={() => this.props.navigation.navigate('QuestionsTranslate', { taskNumber: 0 })} />
+          <Button title="Поехали!" onPress={() => this.props.navigation.navigate('QuestionsTranslate', 
+          { 
+            taskNumber: 0,
+            topicNumber: 1,
+          }
+          )} />
         </View>
       </View>
     )

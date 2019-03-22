@@ -6,7 +6,7 @@ import TopicBottom from '../navigators/TopicsBottom'
 import TopicDetailsScreen from '../screens/TopicDetailsScreen'
 import QuestionsTranslateScreen from '../screens/QuestionsTranslateScreen'
 import CongratsScreen from '../screens/CongratsScreen'
-import TeachingScreen from '../screens/TeachingScreen'
+
 
 const HomeStack = createStackNavigator(
     {
@@ -14,8 +14,7 @@ const HomeStack = createStackNavigator(
       Topics: TopicsScreen,
       TopicDetails: TopicDetailsScreen,
       QuestionsTranslate: QuestionsTranslateScreen,
-      Congrats: CongratsScreen,
-      TeachingScreen: TeachingScreen
+      Congrats: CongratsScreen
     },
 
     {

@@ -1,19 +1,36 @@
 {
-    "posts": [
+    "topics": [
         {
             "id": 1,
-            "title": "json-server",
-            "author": "typicode"
-        }
-    ],
-    "comments": [
+            "name": "Перевод предложений",
+            "description": "Переводите предложения с русского на английский и наоборот",
+            "questionList": [
+                {
+                    "id": 1,
+                    "question": "We hope to meet your friends again",
+                    "answer": "Мы надеемся встретить твоих друзей снова"
+                },
+                {
+                    "id": 2,
+                    "question": "There is a cat in this house",
+                    "answer": "В этом доме есть кот"
+                }
+            ]
+        },
+
         {
-            "id": 1,
-            "body": "some comment",
-            "postId": 1
+            "id": 2,
+            "name": "Запомнить слова",
+            "description": "Запоминайте названия слов и практикуйте свои навыки",
+            "questionList": [
+                {
+                    "id": 1,
+                    "question": "We hope to meet your friends again",
+                    "answer": "Мы надеемся встретить твоих друзей снова"
+                }
+            ]
         }
-    ],
-    "profile": {
-        "name": "typicode"
-    }
+    ]
+
+
 }
