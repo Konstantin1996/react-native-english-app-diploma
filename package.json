@@ -1,0 +1,32 @@
+{
+  "name": "english",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "mockserver": "mockserver -p 8100 -m ./mockData/",
+    "jsonserver": "json-server --host 192.168.0.153 --port 4000 --watch ./mockData/data.json",
+    "test": "jest"
+  },
+  "dependencies": {
+    "fuzzyset": "0.0.4",
+    "react": "16.6.3",
+    "react-native": "0.58.6",
+    "react-native-gesture-handler": "^1.0.17",
+    "react-navigation": "^3.3.2",
+    "react-navigation-props-mapper": "^0.4.0",
+    "react-redux": "^6.0.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "24.1.0",
+    "jest": "24.1.0",
+    "metro-react-native-babel-preset": "0.53.0",
+    "react-test-renderer": "16.6.3"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
