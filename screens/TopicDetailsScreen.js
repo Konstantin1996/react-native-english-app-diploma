@@ -12,7 +12,7 @@ export default class TopicDetailsSreen extends Component {
 
   render() {
     const { navigation } = this.props;
-    console.log(navigation);
+    console.log(navigation.getParam('id'));
     const desc = navigation.getParam('description');
     return (
       <View style={{

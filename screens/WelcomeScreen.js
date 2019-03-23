@@ -1,28 +1,32 @@
 import React, { Component } from 'react'
 import { Button, View, Text, ImageBackground } from 'react-native'
 import { connect } from 'react-redux'
-import { clickButton } from '../actions/index'
 import styles from '../styles/WelcomeScreen'
-import FuzzySet from 'fuzzyset'
+import { fetchTopics } from '../actions/FetchTopics'
 
 class WelcomeScreen extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: ''
-    }
+  state = {
+    topics: null,
   }
 
   static navigationOptions = {
     title: 'Engleo',
   }
 
+  componentDidMount() {
+    fetch(`http://192.168.0.153:4000/topics`)
+      .then(response => response.json())
+      .then(data => {
+        this.setState(() => {
+          this.props.fetchData(data);
+          return { topics: data }
+        })
+      })
+      .catch(error => console.log(error));
+  }
+
   render() {
-    f = FuzzySet(['what']);
-    console.log(f.get('wha')[0][0]);
-    // console.log(f.get('big'));
-    console.log(f.get('эт кошка черная'))
     return (
 
       <View style={{ flex: 1, alignItems: "center" }}>
@@ -38,26 +42,27 @@ class WelcomeScreen extends Component {
           this.props.navigation.navigate('Details', { itemId: 10, otherParams: this.state.text })
         } /> */}
 
-
-        {/* <Button title="test REDUX" onPress={() => {
-          console.log('button...');
-          console.log(this.props);
-          this.props.clickButton('HELLO from REDUX');
-        }} /> */}
         <View style={{ flex: 1, justifyContent: "flex-end", marginBottom: 30 }}>
-          <Button title="Начать"  onPress={() => this.props.navigation.navigate('Topics')}/>
-          {/* <Button title="Начать"  onPress={() => this.props.navigation.navigate('Congrats')}/> */}
+          <Button title="Начать" onPress={() => this.props.navigation.navigate('Topics')} />
         </View>
       </View>
     )
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  clickButton: (params) => {
-    console.log('CLICKED');
-    dispatch(clickButton(params));
+const mapStateToProps = (state) => {
+  console.log(`store now is look like this ${JSON.stringify(state.basicReducer.data)}`)
+  return {
+     topics: state.basicReducer.data
   }
-})
+};
 
-export default connect(null, mapDispatchToProps)(WelcomeScreen)
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+     fetchData: (data) => dispatch(fetchTopics(data)),
+     incrementData: () => dispatch(increment())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(WelcomeScreen);

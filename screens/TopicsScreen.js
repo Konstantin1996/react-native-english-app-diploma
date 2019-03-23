@@ -1,42 +1,29 @@
 import React, { Component } from 'react'
-import { Text, View, ScrollView, TouchableOpacity } from 'react-native'
+import { Text, View, ScrollView, TouchableOpacity,Button } from 'react-native'
 import gstyles from '../styles/GlobalStyles'
 import styles from '../styles/TopicsScreen'
+import { connect } from 'react-redux'
 
-export default class TopicsScreen extends Component {
-
-   state = {
-      topics: null,
-   }
-
-   componentDidMount() {
-      fetch(`http://192.168.0.153:4000/topics`)
-         .then(response => response.json())
-         .then(data => {
-            this.setState({ topics: data })
-         })
-         .catch(error => console.log(error));
-   }
+class TopicsScreen extends Component {
 
    goToTopicDetails = (topic) => {
       this.props.navigation.navigate('TopicDetails', topic);
    }
 
    render() {
-      if (this.state.topics) {
-         console.log(`TOPICI BLYA ${this.state.topics}`);
+      if (this.props.topics) {
          return (
             <View>
                <Text style={styles.textTheme}>Выберите тему</Text>
                <ScrollView>
                   {
-                     this.state.topics.map((item, index) => (
+                     this.props.topics.map((topic, index) => (
                         <TouchableOpacity 
-                           key={item.id} 
+                           key={topic.id} 
                            style={styles.itemTopic} 
-                           onPress={this.goToTopicDetails.bind(this, item)}
+                           onPress={this.goToTopicDetails.bind(this, topic)}
                         >
-                           <Text style={styles.textTheme}>{item.name}</Text>
+                           <Text style={styles.textTheme}>{topic.name}</Text>
                         </TouchableOpacity>
                      ))
                   }
@@ -53,3 +40,10 @@ export default class TopicsScreen extends Component {
    }
 }
 
+const mapStateToProps = (state) => {
+   return {
+      topics: state.basicReducer.data
+   }
+ };
+
+ export default connect(mapStateToProps,null)(TopicsScreen);
