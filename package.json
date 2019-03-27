@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "mockserver": "mockserver -p 8100 -m ./mockData/",
-    "jsonserver": "json-server --host 192.168.0.153 --port 4000 --watch ./mockData/data.json",
+    "jsonserver": "json-server --host 192.168.0.103 --port 4000 --watch ./mockData/data.json",
     "test": "jest"
   },
   "dependencies": {

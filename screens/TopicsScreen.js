@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 class TopicsScreen extends Component {
 
    goToTopicDetails = (topic) => {
-      this.props.navigation.navigate('TopicDetails', topic);
+      this.props.navigation.navigate('TopicDetails', {topic: topic});
    }
 
    render() {
@@ -17,10 +17,11 @@ class TopicsScreen extends Component {
                <Text style={styles.textTheme}>Выберите тему</Text>
                <ScrollView>
                   {
-                     this.props.topics.map((topic, index) => (
+                     this.props.topics.map((topic) => (
                         <TouchableOpacity 
                            key={topic.id} 
-                           style={styles.itemTopic} 
+                           style={styles.itemTopic}
+                           topic={this.props.topics[topic]} 
                            onPress={this.goToTopicDetails.bind(this, topic)}
                         >
                            <Text style={styles.textTheme}>{topic.name}</Text>

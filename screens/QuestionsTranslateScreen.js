@@ -23,6 +23,7 @@ export default class QuestionsTranslateScreen extends Component {
 
   render() {
     const { navigation } = this.props;
+    const topic = navigation.getParam('topic')
     const questionNumber = navigation.getParam('taskNumber');
     console.log(navigation);
     return (
@@ -64,3 +65,4 @@ export default class QuestionsTranslateScreen extends Component {
     )
   }
 }
+

@@ -6,14 +6,15 @@ export default class TopicDetailsSreen extends Component {
 
   static navigationOptions = ({ navigation }) => {
     return {
-      title: navigation.getParam('name')
+      title: navigation.getParam('topic').name
     }
   }
 
   render() {
+    // Передаем из TopicsScreen'a топик
     const { navigation } = this.props;
-    console.log(navigation.getParam('id'));
-    const desc = navigation.getParam('description');
+    const topic = navigation.getParam('topic');
+
     return (
       <View style={{
         flex: 5,
@@ -22,14 +23,12 @@ export default class TopicDetailsSreen extends Component {
       }}>
         <ImageBackground source={require('../styles/images/books.png')} style={{ width: 200, height: 200, position: 'absolute', top: 70 }} />
         <View style={styles.textContainer}>
-          <Text style={gstyle.globalText}>{desc}</Text>
+          <Text style={gstyle.globalText}>{topic.description}</Text>
         </View>
         <View style={styles.btnContainer}>
-          <Button title="Поехали!" onPress={() => this.props.navigation.navigate('QuestionsTranslate', 
-          { 
-            taskNumber: 0,
-            topicNumber: 1,
-          }
+          {/* Хардкод QuestionTranslate добавил поле в data.json*/}
+          <Button title="Поехали!" onPress={() => this.props.navigation.navigate('Repeating', 
+            { repeatingList: topic.repeatingList, index: 1 }
           )} />
         </View>
       </View>
