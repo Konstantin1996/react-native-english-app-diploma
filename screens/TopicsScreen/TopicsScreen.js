@@ -6,6 +6,10 @@ import { connect } from 'react-redux'
 
 class TopicsScreen extends Component {
 
+   static navigationOptions = {
+      title: 'Темы'
+   }
+
    goToTopicDetails = (topic) => {
       this.props.navigation.navigate('TopicDetails', { topic: topic });
    }

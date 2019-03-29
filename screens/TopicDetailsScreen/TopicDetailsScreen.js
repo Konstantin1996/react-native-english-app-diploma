@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Text, View, Button, ImageBackground } from 'react-native'
 import gstyle from '../../styles/GlobalStyles'
 import styles from '../../styles/TopicDetailsScreen';
+
 export default class TopicDetailsSreen extends Component {
 
   static navigationOptions = ({ navigation }) => {
@@ -14,7 +15,7 @@ export default class TopicDetailsSreen extends Component {
     // Передаем из TopicsScreen'a топик
     const { navigation } = this.props;
     const topic = navigation.getParam('topic');
-
+    console.log(topic);
     return (
       <View style={{
         flex: 5,
@@ -27,7 +28,10 @@ export default class TopicDetailsSreen extends Component {
         </View>
         <View style={styles.btnContainer}>
           {/* Хардкод QuestionTranslate добавил поле в data.json*/}
-          <Button title="Поехали!" onPress={() => this.props.navigation.navigate('Repeating', 
+          <Button title="Тест!" onPress={() => this.props.navigation.navigate('QuestionsTranslate',
+            { questionList: topic.questionList, questionNumber: 0 }
+          )} />
+          <Button title="Обучение" onPress={() => this.props.navigation.navigate('Repeating',
             { repeatingList: topic.repeatingList, index: 1 }
           )} />
         </View>
