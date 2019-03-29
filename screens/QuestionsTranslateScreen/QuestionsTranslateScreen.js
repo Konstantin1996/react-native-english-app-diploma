@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, TextInput, Button, ScrollView } from 'react-native'
 import FuzzySet from 'fuzzyset'
-import gstyle from '../styles/GlobalStyles'
+import gstyle from '../../styles/GlobalStyles'
 
 export default class QuestionsTranslateScreen extends Component {
 

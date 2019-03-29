@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from 'react-navigation'
-import TopicsScreen from '../screens/TopicsScreen'
-import WelcomeScreen from '../screens/WelcomeScreen'
+import TopicsScreen from '../screens/TopicsScreen/TopicsScreen'
+import WelcomeScreen from '../screens/WelcomeScreen/WelcomeScreen'
 
 const bottomNavigation = createBottomTabNavigator(
     {

@@ -1,12 +1,12 @@
 
 import { createStackNavigator } from 'react-navigation'
-import WelcomeScreen from  '../screens/WelcomeScreen'
-import TopicsScreen from '../screens/TopicsScreen'
+import WelcomeScreen from  '../screens/WelcomeScreen/WelcomeScreen'
+import TopicsScreen from '../screens/TopicsScreen/TopicsScreen'
 import TopicBottom from '../navigators/TopicsBottom'
-import TopicDetailsScreen from '../screens/TopicDetailsScreen'
-import QuestionsTranslateScreen from '../screens/QuestionsTranslateScreen'
-import CongratsScreen from '../screens/CongratsScreen'
-import RepeatingScreen from '../screens/RepeatingScreen'
+import TopicDetailsScreen from '../screens/TopicDetailsScreen/TopicDetailsScreen'
+import QuestionsTranslateScreen from '../screens/QuestionsTranslateScreen/QuestionsTranslateScreen'
+import CongratsScreen from '../screens/CongratsScreen/CongratsScreen'
+import RepeatingScreen from '../screens/RepeatingScreen/RepeatingScreen'
 
 
 const HomeStack = createStackNavigator(

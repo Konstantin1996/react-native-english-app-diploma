@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, Button, ImageBackground } from 'react-native'
-import gstyle from '../styles/GlobalStyles'
-import styles from '../styles/TopicDetailsScreen';
+import gstyle from '../../styles/GlobalStyles'
+import styles from '../../styles/TopicDetailsScreen';
 export default class TopicDetailsSreen extends Component {
 
   static navigationOptions = ({ navigation }) => {
@@ -21,7 +21,7 @@ export default class TopicDetailsSreen extends Component {
         alignItems: 'center',
         justifyContent: 'center'
       }}>
-        <ImageBackground source={require('../styles/images/books.png')} style={{ width: 200, height: 200, position: 'absolute', top: 70 }} />
+        <ImageBackground source={require('../../styles/images/books.png')} style={{ width: 200, height: 200, position: 'absolute', top: 70 }} />
         <View style={styles.textContainer}>
           <Text style={gstyle.globalText}>{topic.description}</Text>
         </View>

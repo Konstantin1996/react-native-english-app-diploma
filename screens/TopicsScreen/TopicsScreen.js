@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import { Text, View, ScrollView, TouchableOpacity,Button } from 'react-native'
-import gstyles from '../styles/GlobalStyles'
-import styles from '../styles/TopicsScreen'
+import { Text, View, ScrollView, TouchableOpacity, Button } from 'react-native'
+import gstyles from '../../styles/GlobalStyles'
+import styles from '../../styles/TopicsScreen'
 import { connect } from 'react-redux'
 
 class TopicsScreen extends Component {
 
    goToTopicDetails = (topic) => {
-      this.props.navigation.navigate('TopicDetails', {topic: topic});
+      this.props.navigation.navigate('TopicDetails', { topic: topic });
    }
 
    render() {
@@ -18,10 +18,10 @@ class TopicsScreen extends Component {
                <ScrollView>
                   {
                      this.props.topics.map((topic) => (
-                        <TouchableOpacity 
-                           key={topic.id} 
+                        <TouchableOpacity
+                           key={topic.id}
                            style={styles.itemTopic}
-                           topic={this.props.topics[topic]} 
+                           topic={this.props.topics[topic]}
                            onPress={this.goToTopicDetails.bind(this, topic)}
                         >
                            <Text style={styles.textTheme}>{topic.name}</Text>
@@ -29,6 +29,7 @@ class TopicsScreen extends Component {
                      ))
                   }
                </ScrollView>
+
             </View>
          )
       } else {
@@ -45,6 +46,6 @@ const mapStateToProps = (state) => {
    return {
       topics: state.basicReducer.data
    }
- };
+};
 
- export default connect(mapStateToProps,null)(TopicsScreen);
+export default connect(mapStateToProps, null)(TopicsScreen);

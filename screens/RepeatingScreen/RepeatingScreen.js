@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, Button } from 'react-native'
-import styles from '../styles/TopicDetailsScreen';
+import styles from '../../styles/TopicDetailsScreen';
 
 export default class RepeatingScreen extends Component {
     static navigationOptions = ({ navigation }) => {
