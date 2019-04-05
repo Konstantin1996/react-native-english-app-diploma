@@ -15,7 +15,7 @@ class WelcomeScreen extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://192.168.0.103:4000/topics`)
+    fetch(`http://192.168.0.104:4000/topics`)
       .then(response => response.json())
       .then(data => {
         this.setState(() => {
@@ -37,11 +37,6 @@ class WelcomeScreen extends Component {
           <Text style={styles.viewWelcomeText}> Нажмите кнопку начать</Text>
         </View>
 
-        {/* <TextInput onChangeText={(text) => this.setState({ text: text })} /> */}
-        {/* <Button title="Go to details" onPress={() =>
-          this.props.navigation.navigate('Details', { itemId: 10, otherParams: this.state.text })
-        } /> */}
-
         <View style={{ flex: 1, justifyContent: "flex-end", marginBottom: 30 }}>
           <Button title="Начать" onPress={() => this.props.navigation.navigate('Topics')} />
         </View>
@@ -56,7 +51,6 @@ const mapStateToProps = (state) => {
     topics: state.basicReducer.data
   }
 };
-
 
 const mapDispatchToProps = (dispatch) => {
   return {

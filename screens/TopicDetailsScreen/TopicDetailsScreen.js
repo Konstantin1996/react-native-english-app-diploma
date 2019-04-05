@@ -15,7 +15,7 @@ export default class TopicDetailsSreen extends Component {
     // Передаем из TopicsScreen'a топик
     const { navigation } = this.props;
     const topic = navigation.getParam('topic');
-    console.log(topic);
+    console.log(topic.screenName);
     return (
       <View style={{
         flex: 5,
@@ -28,8 +28,8 @@ export default class TopicDetailsSreen extends Component {
         </View>
         <View style={styles.btnContainer}>
           {/* Хардкод QuestionTranslate добавил поле в data.json*/}
-          <Button title="Тест!" onPress={() => this.props.navigation.navigate('QuestionsTranslate',
-            { questionList: topic.questionList, questionNumber: 0 }
+          <Button title="Тест!" onPress={() => this.props.navigation.navigate(topic.screenName,
+            { questionList: topic.questionList, questionNumber: 0, topic: topic }
           )} />
           <Button title="Обучение" onPress={() => this.props.navigation.navigate('Repeating',
             { repeatingList: topic.repeatingList, index: 1 }

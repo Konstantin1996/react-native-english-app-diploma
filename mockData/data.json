@@ -51,7 +51,29 @@
                     "rules": "There are some words you need to know"
                 }
             ]
+        },
+
+        {
+            "id": 3,
+            "name": "Угадай слово",
+            "screenName": "GuessWord",
+            "description": "Запоминайте слова и перевод, а затем тренируйте свои навыки",
+            "questionList": [
+                {
+                    "id": 1,
+                    "question": "Beard",
+                    "answer": "борода"
+                }
+            ],
+
+            "repeatingList": [
+                {
+                    "id": 1,
+                    "rules": ""
+                }
+            ]
         }
+
     ]
 
 

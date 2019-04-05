@@ -7,6 +7,7 @@ import TopicDetailsScreen from '../screens/TopicDetailsScreen/TopicDetailsScreen
 import QuestionsTranslateScreen from '../screens/QuestionsTranslateScreen/QuestionsTranslateScreen'
 import CongratsScreen from '../screens/CongratsScreen/CongratsScreen'
 import RepeatingScreen from '../screens/RepeatingScreen/RepeatingScreen'
+import GuessWordScreen from '../screens/GuessWordScreen/GuessWordScreen'
 
 
 const HomeStack = createStackNavigator(
@@ -16,7 +17,8 @@ const HomeStack = createStackNavigator(
       TopicDetails: TopicDetailsScreen,
       QuestionsTranslate: QuestionsTranslateScreen,
       Congrats: CongratsScreen,
-      Repeating: RepeatingScreen
+      Repeating: RepeatingScreen,
+      GuessWord: GuessWordScreen
     },
 
     {
