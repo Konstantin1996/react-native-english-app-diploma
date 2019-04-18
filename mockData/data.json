@@ -62,7 +62,22 @@
                 {
                     "id": 1,
                     "question": "Beard",
-                    "answer": "борода"
+                    "answer": "Борода"
+                },
+                {
+                    "id": 2,
+                    "question": "Nose",
+                    "answer": "Нос"
+                },
+                {
+                    "id": 3,
+                    "question": "Chin",
+                    "answer": "Подбородок"
+                },
+                {
+                    "id": 4,
+                    "question": "Eyes",
+                    "answer": "Глаза"
                 }
             ],
 

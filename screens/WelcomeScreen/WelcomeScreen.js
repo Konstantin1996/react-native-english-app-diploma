@@ -15,7 +15,7 @@ class WelcomeScreen extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://192.168.0.104:4000/topics`)
+    fetch(`http://192.168.0.107:4000/topics`)
       .then(response => response.json())
       .then(data => {
         this.setState(() => {

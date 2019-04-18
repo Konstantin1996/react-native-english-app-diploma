@@ -7,7 +7,7 @@ import TopicDetailsScreen from '../screens/TopicDetailsScreen/TopicDetailsScreen
 import QuestionsTranslateScreen from '../screens/QuestionsTranslateScreen/QuestionsTranslateScreen'
 import CongratsScreen from '../screens/CongratsScreen/CongratsScreen'
 import RepeatingScreen from '../screens/RepeatingScreen/RepeatingScreen'
-import GuessWordScreen from '../screens/GuessWordScreen/GuessWordScreen'
+import GuessWordScreen from '../screens/GuessWordScreen/GuessWordScreen.js'
 
 
 const HomeStack = createStackNavigator(
