@@ -15,6 +15,7 @@
     "react-native": "0.58.6",
     "react-native-elements": "^1.1.0",
     "react-native-gesture-handler": "^1.0.17",
+    "react-native-simple-radio-button": "^2.7.3",
     "react-native-vector-icons": "^6.4.2",
     "react-navigation": "^3.3.2",
     "react-navigation-props-mapper": "^0.4.0",

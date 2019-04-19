@@ -78,6 +78,16 @@
                     "id": 4,
                     "question": "Eyes",
                     "answer": "Глаза"
+                },
+                {
+                    "id": 5,
+                    "question": "Hair",
+                    "answer": "Волосы"
+                },
+                {
+                    "id": 6,
+                    "question": "Arm",
+                    "answer": "Рука"
                 }
             ],
 
