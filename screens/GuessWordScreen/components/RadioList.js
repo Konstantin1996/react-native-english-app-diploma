@@ -2,25 +2,40 @@ import React, { Component } from 'react'
 import { Text, View } from 'react-native'
 import RadioForm from 'react-native-simple-radio-button'
 
+
 export class RadioList extends Component {
 
+    shouldComponentUpdate() {
+        return this.props.updateRadioList;
+    }
+
     toggleRadio = (value) => {
-        console.log(value);
-    } 
-    
+        this.props.updateRadioValue(value)
+        debugger;
+    }
+
     getRandomQuestions() {
         const { navigation } = this.props;
         let questionList = navigation.getParam('topic').questionList;
+        let rightAnswerId = navigation.getParam('topic').questionList[navigation.getParam('questionNumber')].id;
 
-        let randomQuestionOne = Math.floor(Math.random() * questionList.length);
-        let randomQuestionTwo = Math.floor(Math.random() * questionList.length);
-        let randomQuestionThree = Math.floor(Math.random() * questionList.length);
+        let randomNum = Math.floor(Math.random() * questionList.length);
+        let nums = [rightAnswerId];
+
+        while (nums.length < 3) {
+            randomNum = Math.floor(Math.random() * questionList.length)
+            if(!nums.includes(randomNum)){  
+                nums.push(randomNum)
+            }
+        }
 
         const radio_props = [
-            { label: questionList[randomQuestionOne].answer, value: 0 },
-            { label: questionList[randomQuestionTwo].answer, value: 1 },
-            { label: questionList[randomQuestionThree].answer, value: 2 },
+            { label: questionList[nums[0]].answer, value: 0 },
+            { label: questionList[nums[1]].answer, value: 1 },
+            { label: questionList[nums[2]].answer, value: 2 },
         ];
+
+        radio_props.sort(() => Math.random() - 0.5);
 
         return (
             <View>
@@ -37,7 +52,7 @@ export class RadioList extends Component {
 
     render() {
         return (
-            this.getRandomQuestions() 
+            this.getRandomQuestions()
         )
     }
 }

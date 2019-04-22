@@ -60,32 +60,32 @@
             "description": "Запоминайте слова и перевод, а затем тренируйте свои навыки",
             "questionList": [
                 {
-                    "id": 1,
+                    "id": 0,
                     "question": "Beard",
                     "answer": "Борода"
                 },
                 {
-                    "id": 2,
+                    "id": 1,
                     "question": "Nose",
                     "answer": "Нос"
                 },
                 {
-                    "id": 3,
+                    "id": 2,
                     "question": "Chin",
                     "answer": "Подбородок"
                 },
                 {
-                    "id": 4,
+                    "id": 3,
                     "question": "Eyes",
                     "answer": "Глаза"
                 },
                 {
-                    "id": 5,
+                    "id": 4,
                     "question": "Hair",
                     "answer": "Волосы"
                 },
                 {
-                    "id": 6,
+                    "id": 5,
                     "question": "Arm",
                     "answer": "Рука"
                 }
