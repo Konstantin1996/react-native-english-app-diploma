@@ -3,6 +3,7 @@ import { Text, View, Button } from 'react-native'
 import { RadioList } from './components/RadioList'
 import gstyle from '../../styles/GlobalStyles'
 import { Result } from './components/Result'
+
 export default class GuessWordScreen extends Component {
 
     state = {
@@ -58,10 +59,17 @@ export default class GuessWordScreen extends Component {
             result: null,
             showBtnChecker: true,
         })
-        navigation.navigate(
-            topic.screenName,
-            { questionNumber: questionNumber, topic: topic }
-        )
+
+        if (questionNumber) {
+            navigation.navigate(
+                topic.screenName,
+                { questionNumber: questionNumber, topic: topic }
+            )
+        } else {
+            navigation.navigate(
+                'Congrats'
+            )
+        }
     }
 
     render() {
@@ -92,7 +100,7 @@ export default class GuessWordScreen extends Component {
                     onPress={this.state.showBtnChecker ? this.toggleButtonCheck : this.nextQuestion}
                     disabled={this.state.radioValue !== null ? false : true}
                 />
-                
+
             </View>
         )
     }

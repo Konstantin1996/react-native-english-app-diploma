@@ -5,7 +5,6 @@ import styles from '../../styles/GlobalStyles'
 export default class CongratsScreen extends Component {
     render() {
         return (
-
             <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
                 <ImageBackground source={require('../../styles/images/congrats.png')} style={{ position: 'absolute', width: 240, height: 240, top: 50 }} />
                 <View style={{ marginTop: 300 }}>

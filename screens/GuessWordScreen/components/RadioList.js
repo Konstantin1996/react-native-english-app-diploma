@@ -11,7 +11,6 @@ export class RadioList extends Component {
 
     toggleRadio = (value) => {
         this.props.updateRadioValue(value)
-        debugger;
     }
 
     getRandomQuestions() {
