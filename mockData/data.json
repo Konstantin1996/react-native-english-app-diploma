@@ -88,6 +88,21 @@
                     "id": 5,
                     "question": "Arm",
                     "answer": "Рука"
+                },
+                {
+                    "id": 6,
+                    "question": "Finger",
+                    "answer": "Палец"
+                },
+                {
+                    "id": 7,
+                    "question": "Lips",
+                    "answer": "Губы"
+                },
+                {
+                    "id": 8,
+                    "question": "Cheeks",
+                    "answer": "Щёки"
                 }
             ],
 

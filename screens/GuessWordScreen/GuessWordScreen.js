@@ -12,7 +12,6 @@ export default class GuessWordScreen extends Component {
         showResult: false,
         result: null,
         showBtnChecker: true,
-        showBtnNext: true
     }
 
     componentDidMount() {
@@ -27,37 +26,30 @@ export default class GuessWordScreen extends Component {
                 showResult: true,
                 result: true
             })
-            debugger;
         } else {
             this.setState({
                 showResult: true,
                 result: false
             })
-            debugger;
         }
         this.setState(() => {
             return {
                 updateRadioList: true,
                 showBtnChecker: false,
-                showBtnNext: true
             }
         });
     }
 
     updateRadioValue = (value) => {
-        console.log(this.state.answer);
-        console.log(value);
-        debugger
         this.setState({ radioValue: value })
     }
 
     nextQuestion = () => {
         const { navigation } = this.props;
         const topic = navigation.getParam('topic');
-        console.log(navigation.getParam('questionNumber'));
         const questionNumber = navigation.getParam('questionNumber') + 1;
         const questionAnswer = navigation.getParam('questionList')[questionNumber].answer;
-        debugger;
+
         this.setState({
             radioValue: null,
             answer: questionAnswer,
@@ -65,13 +57,11 @@ export default class GuessWordScreen extends Component {
             showResult: false,
             result: null,
             showBtnChecker: true,
-            showBtnNext: false
         })
         navigation.navigate(
             topic.screenName,
             { questionNumber: questionNumber, topic: topic }
         )
-        debugger;
     }
 
     render() {
@@ -79,7 +69,6 @@ export default class GuessWordScreen extends Component {
         const questionNumber = navigation.getParam('questionNumber');
         const question = navigation.getParam('topic').questionList[questionNumber].question;
         const answer = navigation.getParam('topic').questionList[questionNumber].answer;
-
         return (
             <View>
                 <View style={{ margin: 10 }}>
@@ -98,18 +87,12 @@ export default class GuessWordScreen extends Component {
                     rightAnswer={answer}
                 />
 
-                {/* {this.state.showBtnChecker ? ( */}
-                    {/* <Button
-                        title="Проверить"
-                        onPress={this.toggleButtonCheck}
-                        disabled={this.state.radioValue !== null ? false : true}
-                    />) : null} */}
-                {/* {this.state.showBtnNext ? ( */}
-                    <Button
-                        title='Следующий вопрос'
-                        onPress={this.nextQuestion}
-                    />
-                    {/* ) : null} */}
+                <Button
+                    title={this.state.showBtnChecker ? "Проверить" : "Следующий вопрос"}
+                    onPress={this.state.showBtnChecker ? this.toggleButtonCheck : this.nextQuestion}
+                    disabled={this.state.radioValue !== null ? false : true}
+                />
+                
             </View>
         )
     }
