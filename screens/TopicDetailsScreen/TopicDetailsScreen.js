@@ -31,9 +31,9 @@ export default class TopicDetailsSreen extends Component {
           <Button title="Тест!" onPress={() => this.props.navigation.navigate(topic.screenName,
             { questionList: topic.questionList, questionNumber: 0, topic: topic }
           )} />
-          <Button title="Обучение" onPress={() => this.props.navigation.navigate('Repeating',
+          {/* <Button title="Обучение" onPress={() => this.props.navigation.navigate('Repeating',
             { repeatingList: topic.repeatingList, index: 1 }
-          )} />
+          )} /> */}
         </View>
       </View>
     )

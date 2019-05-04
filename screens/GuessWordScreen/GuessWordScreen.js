@@ -48,8 +48,13 @@ export default class GuessWordScreen extends Component {
     nextQuestion = () => {
         const { navigation } = this.props;
         const topic = navigation.getParam('topic');
+        const questionList = navigation.getParam('questionList');
         const questionNumber = navigation.getParam('questionNumber') + 1;
-        const questionAnswer = navigation.getParam('questionList')[questionNumber].answer;
+
+        if(questionNumber < questionList.length){
+            var questionAnswer = navigation.getParam('questionList')[questionNumber].answer;
+        }
+        debugger;
 
         this.setState({
             radioValue: null,
@@ -60,7 +65,7 @@ export default class GuessWordScreen extends Component {
             showBtnChecker: true,
         })
 
-        if (questionNumber) {
+        if (questionNumber < questionList.length) {
             navigation.navigate(
                 topic.screenName,
                 { questionNumber: questionNumber, topic: topic }

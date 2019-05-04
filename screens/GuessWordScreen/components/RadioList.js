@@ -33,7 +33,6 @@ export class RadioList extends Component {
             { label: questionList[nums[1]].answer, value: nums[1] },
             { label: questionList[nums[2]].answer, value: nums[2] },
         ];
-        debugger;
 
         radio_props.sort(() => Math.random() - 0.5);
 

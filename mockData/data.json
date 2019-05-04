@@ -35,13 +35,15 @@
 
         {
             "id": 2,
-            "name": "Запомнить слова",
-            "description": "Запоминайте названия слов и практикуйте свои навыки",
+            "name": "Верно-неверно",
+            "screenName": "TrueFalseGame",
+            "description": "Попробуйте не ошибиться в переводе слов",
             "questionList": [
                 {
                     "id": 1,
-                    "question": "We hope to meet your friends again",
-                    "answer": "Мы надеемся встретить твоих друзей снова"
+                    "question": "Strawberry",
+                    "image": "http://chicagokidsdds.com/blog/wp-content/uploads/2017/06/d34Cu4L.jpg",
+                    "answer": "Клубника"
                 }
             ],
 
@@ -55,7 +57,7 @@
 
         {
             "id": 3,
-            "name": "Угадай слово",
+            "name": "Переведи слово",
             "screenName": "GuessWord",
             "description": "Запоминайте слова и перевод, а затем тренируйте свои навыки",
             "questionList": [
@@ -104,6 +106,7 @@
                     "question": "Cheeks",
                     "answer": "Щёки"
                 }
+
             ],
 
             "repeatingList": [
