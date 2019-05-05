@@ -38,12 +38,25 @@
             "name": "Верно-неверно",
             "screenName": "TrueFalseGame",
             "description": "Попробуйте не ошибиться в переводе слов",
+            "allQuestions": ["Strawberry","Bannana","Blackberry"],
             "questionList": [
                 {
                     "id": 1,
                     "question": "Strawberry",
-                    "image": "http://chicagokidsdds.com/blog/wp-content/uploads/2017/06/d34Cu4L.jpg",
+                    "image": "https://png2.kisspng.com/sh/333af49712a4917d76979434ee1455e0/L0KzQYi4UsIxN6NofZGAYUPkc4nqUcJnPGoAUJC8MEi8RYa9V8E2OWQ9SKMEMkG0SYSAV8I1Pl91htk=/5a3ac8c12f4998.30895567151380192119377246.png",
                     "answer": "Клубника"
+                },
+                {
+                    "id": 2,
+                    "question": "Bannana",
+                    "image": "http://chicagokidsdds.com/blog/wp-content/uploads/2017/06/d34Cu4L.jpg",
+                    "answer": "Банан"
+                },
+                {
+                    "id": 3,
+                    "question": "Blackberry",
+                    "image": "http://chicagokidsdds.com/blog/wp-content/uploads/2017/06/d34Cu4L.jpg",
+                    "answer": "Ежевика"
                 }
             ],
 

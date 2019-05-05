@@ -1,11 +1,13 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-const Questions = ({questions, questionNumber}) => {
+import gstyles from '../../styles/GlobalStyles'
+
+const Questions = ({questions, mixedQuestions, questionNumber}) => {
     return (
-        <View>
-            <Text>{questions[questionNumber].answer}</Text>
-            <Text>{questions[questionNumber].question}</Text>
+        <View style={gstyles.container}>
+            <Text style={gstyles.globalText}>{questions[questionNumber].answer}</Text>
+            <Text style={gstyles.globalText}>{mixedQuestions[questionNumber]}</Text>
         </View>
     )
 }
