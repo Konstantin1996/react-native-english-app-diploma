@@ -54,7 +54,6 @@ export default class GuessWordScreen extends Component {
         if(questionNumber < questionList.length){
             var questionAnswer = navigation.getParam('questionList')[questionNumber].answer;
         }
-        debugger;
 
         this.setState({
             radioValue: null,
