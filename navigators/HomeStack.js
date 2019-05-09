@@ -9,9 +9,15 @@ import CongratsScreen from '../screens/CongratsScreen/CongratsScreen'
 import RepeatingScreen from '../screens/RepeatingScreen/RepeatingScreen'
 import GuessWordScreen from '../screens/GuessWordScreen/GuessWordScreen.js'
 import TrueFalseScreen from '../screens/TrueFalseScreen/TrueFalseScreen'
+import LoginScreen from '../screens/LoginScreen/LoginScreen'
+import LoadingScreen from '../screens/LoadingScreen/LoadingScreen'
+import SignUpScreen from '../screens/SignUpScreen/SignUpScreen';
 
 const HomeStack = createStackNavigator(
     {
+      Loading: LoadingScreen,
+      Login: LoginScreen,
+      SignUp: SignUpScreen,
       Welcome: WelcomeScreen,
       Topics: TopicsScreen,
       TopicDetails: TopicDetailsScreen,
@@ -23,7 +29,7 @@ const HomeStack = createStackNavigator(
     },
 
     {
-      initialRouteName: 'Welcome',
+      initialRouteName: 'Loading',
       defaultNavigationOptions: {
         headerStyle: {
           backgroundColor: '#54afbb',

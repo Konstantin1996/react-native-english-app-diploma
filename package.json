@@ -10,6 +10,7 @@
     "devtools": "react-devtools"
   },
   "dependencies": {
+    "firebase": "^6.0.0",
     "fuzzyset": "0.0.4",
     "prop-types": "^15.7.2",
     "react": "16.6.3",

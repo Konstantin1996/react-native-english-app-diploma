@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import styles from '../../styles/WelcomeScreen'
 import { fetchTopics } from '../../actions/FetchTopics'
 
+import firebase from 'firebase'
+
 class WelcomeScreen extends Component {
 
   state = {
