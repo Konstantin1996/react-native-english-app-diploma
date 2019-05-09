@@ -26,25 +26,14 @@ export default class SignUpScreen extends Component {
         const {email, password} = this.state;
         console.log('HERE');    
 
-        
-
-        console.log(firebase.auth().createUserWithEmailAndPassword(email, password));
-        firebase.auth().createUserWithEmailAndPassword(email, password).then(() => console.log('ti pidor')).catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            console.log(errorMessage);
-            console.log(errorCode)
-            // ...
-          });
-        // firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-        // .then(() => {
-        //     console.log('navigate');
-        //     navigation.navigate('Welcome');
-        // })
-        // .catch((errorMessage) => {
-        //     console.log(errorMessage);
-        //     this.setState({errorMessage})})
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then(() => {
+            console.log('navigate to Login...');
+            navigation.navigate('Login');
+        })
+        .catch(({message}) => {
+            this.setState({errorMessage: message})
+        })
     }
 
     navigateLogin = () => {
@@ -57,8 +46,11 @@ export default class SignUpScreen extends Component {
 
         return (
             <View>
+                
                 <Text>Регистрация</Text>
                 
+                {errorMessage && (<Text>{errorMessage}</Text>)}
+
                 <TextInput
                     placeholder="Email"
                     autoCapitalize="none"

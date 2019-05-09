@@ -2,20 +2,14 @@ import React from 'React'
 import { View, Text, ActivityIndicator, StyleSheet } from 'react-native'
 
 import firebase from 'firebase'
-import { firebaseConfig } from '../../firebase/config';
 
 export default class Loading extends React.Component {
 
     componentDidMount() {
-        console.log(firebase);
         const { navigation } = this.props;
-        
-        if (!firebase.apps.length) {
-            firebase.initializeApp(firebaseConfig);
-        }
-        
-        console.log('Текущий пользователь ' + firebase.auth().currentUser);
         firebase.auth().onAuthStateChanged(user => {
+            console.log('Текущий пользователь ', firebase.auth().currentUser);
+            user = null;
             navigation.navigate(user ? 'Welcome' : 'Login');
         })
     }
