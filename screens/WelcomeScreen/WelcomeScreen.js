@@ -30,7 +30,10 @@ class WelcomeScreen extends Component {
 
   render() {
     const { navigation } = this.props;
+
     const nick = navigation.getParam('nick', 'default');
+    const points = navigation.getParam('points');
+
     return (
 
       <View style={{ flex: 1, alignItems: "center" }}>
@@ -42,7 +45,7 @@ class WelcomeScreen extends Component {
         </View>
 
         <View style={{ flex: 1, justifyContent: "flex-end", marginBottom: 30 }}>
-          <Button title="Начать" onPress={() => this.props.navigation.navigate('Topics')} />
+          <Button title="Начать" onPress={() => this.props.navigation.navigate('Topics', { points })} />
         </View>
       </View>
     )

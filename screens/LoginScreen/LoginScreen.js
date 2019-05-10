@@ -65,16 +65,13 @@ export default class LoginScreen extends Component {
                     console.log('response info ... ')
                     console.log(response.user.uid);
                     
-
                     navigation.navigate(screen)
                 })
                 .catch((errorMessage => this.setState({ errorMessage: errorMessage.message })))
             console.log('Sign In');
             console.log(result);
         } else {
-
             navigation.navigate(screen);
-
         }
     }
 

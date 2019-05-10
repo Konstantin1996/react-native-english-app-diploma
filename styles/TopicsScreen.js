@@ -13,6 +13,13 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         margin: 10,
         backgroundColor: '#d2f7f1'
+    },
+
+    itemRepeat: {
+        padding: 30,
+        textAlign: 'center',
+        margin: 10,
+        backgroundColor: '#e05555'
     }
 })
 

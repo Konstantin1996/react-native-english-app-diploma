@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
-import { Text, View, ScrollView, TouchableOpacity, Button } from 'react-native'
+import { Text, View, ScrollView, TouchableOpacity } from 'react-native'
+import { Icon } from 'react-native-elements'
+
 import gstyles from '../../styles/GlobalStyles'
 import styles from '../../styles/TopicsScreen'
 import { connect } from 'react-redux'
+
 
 class TopicsScreen extends Component {
 
@@ -14,26 +17,46 @@ class TopicsScreen extends Component {
       this.props.navigation.navigate('TopicDetails', { topic: topic });
    }
 
+   topicIsOpen = ({ pointsNeeded }) => {
+      const userPoints = this.navigation.getParam('points');
+      return !(userPoints >= pointsNeeded);
+   }
+
+   navigation = this.props.navigation;
+
    render() {
-      if (this.props.topics) {
+      const { topics } = this.props;
+      const points = this.navigation.getParam('points');
+
+      if (topics) {
          return (
             <View>
                <Text style={styles.textTheme}>Выберите тему</Text>
-               <ScrollView>
+               <Text style={styles.textTheme}> Количество очков {points}</Text>
+               <ScrollView contentContainerStyle={{ paddingVertical: 30, paddingHorizontal: 10 }}>
                   {
-                     this.props.topics.map((topic) => (
-                        <TouchableOpacity
-                           key={topic.id}
-                           style={styles.itemTopic}
-                           topic={this.props.topics[topic]}
-                           onPress={this.goToTopicDetails.bind(this, topic)}
-                        >
-                           <Text style={styles.textTheme}>{topic.name}</Text>
-                        </TouchableOpacity>
-                     ))
+                     topics.reverse().map((topic) => {
+                        const styleForItem = topic.repeatScreen ? styles.itemRepeat : styles.itemTopic;
+                        return (
+                           <TouchableOpacity
+                              disabled={this.topicIsOpen(topic)}
+                              key={topic.id}
+                              style={styleForItem}
+                              topic={topics[topic]}
+                              onPress={() => this.goToTopicDetails(topic)}
+                           >
+                              <View style={{ flexWrap: 'wrap', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
+                                 <Icon
+                                    name='star'
+                                    color='yellow'
+                                 />
+                                 <Text style={styles.textTheme}>{topic.name}</Text>
+                              </View>
+                           </TouchableOpacity>
+                        )
+                     })
                   }
                </ScrollView>
-
             </View>
          )
       } else {

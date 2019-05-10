@@ -2,41 +2,18 @@
     "topics": [
         {
             "id": 1,
-            "name": "Перевод предложений",
-            "screenName": "QuestionsTranslate",
-            "description": "Переводите предложения с русского на английский и наоборот",
-            "questionList": [
-                {
-                    "id": 1,
-                    "question": "We hope to meet your friends again",
-                    "answer": "Мы надеемся встретить твоих друзей снова"
-                },
-                {
-                    "id": 2,
-                    "question": "There is a cat in this house",
-                    "answer": "В этом доме есть кот"
-                }
-            ],
-            "rightAnswers": [
-                "Мы надеемся встретить твоих друзей снова", "В этом доме есть кот"
-            ],
-            "repeatingList": [
-                {
-                    "id": 1,
-                    "rules": "The rules for this section is here..."
-                },
-
-                {
-                    "id": 2,
-                    "rules": "The next section is about..."
-                }
-            ]
+            "name": "Учим фрукты",
+            "screenName": "Repeating",
+            "repeatScreen": true,
+            "pointsNeeded": 0
         },
 
         {
             "id": 2,
             "name": "Верно-неверно",
             "screenName": "TrueFalseGame",
+            "repeatScreen": false,
+            "pointsNeeded": 100,
             "description": "Попробуйте не ошибиться в переводе слов",
             "allQuestions": ["Strawberry","Bannana","Blackberry","Carrot", "Apple"],
             "questionList": [
@@ -70,20 +47,23 @@
                     "image": "http://pngimg.com/uploads/apple/apple_PNG12458.png",
                     "answer": "Яблоко"
                 }
-            ],
-
-            "repeatingList": [
-                {
-                    "id": 1,
-                    "rules": "There are some words you need to know"
-                }
             ]
         },
 
         {
             "id": 3,
+            "name": "Учим части тела",
+            "screenName": "Repeating",
+            "repeatScreen": true,
+            "pointsNeeded": 200
+        },
+
+        {
+            "id": 4,
             "name": "Переведи слово",
             "screenName": "GuessWord",
+            "repeatScreen": false,
+            "pointsNeeded": 300,
             "description": "Запоминайте слова и перевод, а затем тренируйте свои навыки",
             "questionList": [
                 {
@@ -131,17 +111,40 @@
                     "question": "Cheeks",
                     "answer": "Щёки"
                 }
+            ]
+        }, 
 
-            ],
+        {
+            "id": 5,
+            "name": "Учим грамматику",
+            "screenName": "Repeating",
+            "repeatScreen": true,
+            "pointsNeeded": 400
+        },
 
-            "repeatingList": [
+        {
+            "id": 6,
+            "name": "Перевод предложений",
+            "screenName": "QuestionsTranslate",
+            "repeatScreen": false,
+            "pointsNeeded": 600,
+            "description": "Переводите предложения с русского на английский и наоборот",
+            "questionList": [
                 {
                     "id": 1,
-                    "rules": ""
+                    "question": "We hope to meet your friends again",
+                    "answer": "Мы надеемся встретить твоих друзей снова"
+                },
+                {
+                    "id": 2,
+                    "question": "There is a cat in this house",
+                    "answer": "В этом доме есть кот"
                 }
+            ],
+            "rightAnswers": [
+                "Мы надеемся встретить твоих друзей снова", "В этом доме есть кот"
             ]
         }
-
     ]
 
 

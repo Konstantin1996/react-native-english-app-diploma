@@ -34,6 +34,7 @@ export default class SignUpScreen extends Component {
                     email: email,
                     nick: this.state.nick,
                     progress: 0,
+                    points: 0
                 }
                 console.log('try to insert');
                 return firebase.database().ref('users/' + uid).set(newUser);

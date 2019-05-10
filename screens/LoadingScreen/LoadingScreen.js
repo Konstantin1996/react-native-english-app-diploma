@@ -19,7 +19,8 @@ export default class Loading extends React.Component {
                     console.log('value',snapshot.val());
                     const nick = snapshot.val().nick;
                     const progress = snapshot.val().progress;
-                    navigation.navigate('Welcome', { nick, progress} );
+                    const points = snapshot.val().points;
+                    navigation.navigate('Welcome', { nick, progress, points} );
 
                     // Логика должна быть такая
                     // if(snapshot.val().progress === 0) {
