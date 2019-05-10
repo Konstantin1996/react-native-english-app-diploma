@@ -29,13 +29,15 @@ class WelcomeScreen extends Component {
   }
 
   render() {
+    const { navigation } = this.props;
+    const nick = navigation.getParam('nick', 'default');
     return (
 
       <View style={{ flex: 1, alignItems: "center" }}>
 
         <ImageBackground source={require('../../styles/images/graduate.png')} style={{ position: 'absolute', width: 240, height: 240, top: 10 }} />
         <View style={{ flex: 5, justifyContent: 'flex-end' }}>
-          <Text style={styles.viewWelcomeText}> Добро пожаловать, в приложение, которое поможет вам улучшить знания по английскому языку.</Text>
+          <Text style={styles.viewWelcomeText}> Добро пожаловать {nick}, в приложение, которое поможет вам улучшить знания по английскому языку.</Text>
           <Text style={styles.viewWelcomeText}> Нажмите кнопку начать</Text>
         </View>
 

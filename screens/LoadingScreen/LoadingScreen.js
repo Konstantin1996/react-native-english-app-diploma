@@ -1,16 +1,36 @@
 import React from 'React'
 import { View, Text, ActivityIndicator, StyleSheet } from 'react-native'
 
-import firebase from 'firebase'
+import firebase from '../../firebase/config'
 
 export default class Loading extends React.Component {
 
     componentDidMount() {
         const { navigation } = this.props;
         firebase.auth().onAuthStateChanged(user => {
-            console.log('Текущий пользователь ', firebase.auth().currentUser);
-            user = null;
-            navigation.navigate(user ? 'Welcome' : 'Login');
+            console.log('user', user);
+            
+            if (user) {
+                console.log('Текущий пользователь ', user);
+                console.log('uid', user.uid);
+                
+                firebase.database().ref('users/'+user.uid).once('value').then(snapshot => {
+                    console.log('snapshot',snapshot)
+                    console.log('value',snapshot.val());
+                    const nick = snapshot.val().nick;
+                    const progress = snapshot.val().progress;
+                    navigation.navigate('Welcome', { nick, progress} );
+
+                    // Логика должна быть такая
+                    // if(snapshot.val().progress === 0) {
+                        // navigation.navigate('Welcome');
+                    // } else {
+                        // navigation.navigate('Topics')
+                    // }
+                }).catch(error => console.log('error',error));
+            } else {
+                navigation.navigate('Login');
+            }
         })
     }
 

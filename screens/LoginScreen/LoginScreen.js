@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, Button, TextInput } from 'react-native'
-import firebase from 'firebase'
 
-
-
-
+import firebase from '../../firebase/config'
 export default class LoginScreen extends Component {
 
     state = {
@@ -14,29 +11,24 @@ export default class LoginScreen extends Component {
     }
 
     componentWillMount() {
+        // const testObject = {
+        //     name: 'Penguin',
+        //     age: 20,
+        //     sex: 'm',
+        //     weight: 69
+        // }
 
-        if (!firebase.apps.length) {
-            firebase.initializeApp(firebaseConfig);
-        }
+        // firebase.database().ref('users/').set(testObject).then(() => {
+        //     console.log('INSERTED!');
+        // }).catch(() => {
+        //     console.log('ERROR');
+        // })
 
-        const testObject = {
-            name: 'Penguin',
-            age: 20,
-            sex: 'm',
-            weight: 69
-        }
-
-        firebase.database().ref('users/').set(testObject).then(() => {
-            console.log('INSERTED!');
-        }).catch(() => {
-            console.log('ERROR');
-        })
-
-        const newUserKey = firebase.database().ref().child('users').push().key;
-        const usersRef = firebase.database().ref('users');
-        console.log('usersRef');
-        console.log(usersRef);
-        console.log(`new user key ${newUserKey}`)
+        // const newUserKey = firebase.database().ref().child('users').push().key;
+        // const usersRef = firebase.database().ref('users');
+        // console.log('usersRef');
+        // console.log(usersRef);
+        // console.log(`new user key ${newUserKey}`)
 
         // firebase.database().ref('users/' + newUserKey).set({ name: 'Bob', age: 9 })
         //     .then(() => { console.log('INSERTED BOB HEY') })
@@ -56,16 +48,34 @@ export default class LoginScreen extends Component {
 
 
     emailInput = (email) => {
-        this.setState({email});
-    }
- 
-    passwordInput = (password) => {
-        this.setState({password});
+        this.setState({ email });
     }
 
-    navigateRegistration = () => {
+    passwordInput = (password) => {
+        this.setState({ password });
+    }
+
+    navigateToScreen = (screen) => {
         const { navigation } = this.props;
-        navigation.navigate('SignUp');
+        const { email, password } = this.state;
+
+        if (screen === 'Welcome') {
+            const result = firebase.auth().signInWithEmailAndPassword(email, password)
+                .then((response) => {
+                    console.log('response info ... ')
+                    console.log(response.user.uid);
+                    
+
+                    navigation.navigate(screen)
+                })
+                .catch((errorMessage => this.setState({ errorMessage: errorMessage.message })))
+            console.log('Sign In');
+            console.log(result);
+        } else {
+
+            navigation.navigate(screen);
+
+        }
     }
 
     render() {
@@ -75,6 +85,8 @@ export default class LoginScreen extends Component {
             <View>
                 <Text>Логин</Text>
 
+                {errorMessage && (<Text>{errorMessage}</Text>)}
+
                 <TextInput
                     placeholder="Email"
                     autoCapitalize="none"
@@ -82,7 +94,7 @@ export default class LoginScreen extends Component {
                     value={email}
                 />
 
-                <TextInput 
+                <TextInput
                     secureTextEntry
                     placeholder="Пароль"
                     autoCapitalize="none"
@@ -90,8 +102,8 @@ export default class LoginScreen extends Component {
                     value={password}
                 />
 
-                <Button title="Войти"/>
-                <Button title="Зарегистрироваться" onPress={this.navigateRegistration} />
+                <Button title="Войти" onPress={() => this.navigateToScreen('Welcome')} />
+                <Button title="Зарегистрироваться" onPress={() => this.navigateToScreen('SignUp')} />
             </View>
         )
     }
