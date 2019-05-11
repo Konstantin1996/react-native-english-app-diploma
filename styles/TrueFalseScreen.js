@@ -48,10 +48,6 @@ const styles = StyleSheet.create({
     buttonInnerContainer: {
         width: '50%',
     },
-    
-    // button: {
-    //     backgroundColor:'red'
-    // }
 
 });
 

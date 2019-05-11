@@ -4,6 +4,38 @@
             "id": 1,
             "name": "Учим фрукты",
             "screenName": "Repeating",
+            "rules": [
+                {
+                    "id": 1,
+                    "word": "Strawberry",
+                    "image": "https://i.pinimg.com/originals/6b/70/63/6b7063df22799fbf31473f6606433a00.png",
+                    "translation": "Клубника"
+                },
+                {
+                    "id": 2,
+                    "word": "Bannana",
+                    "image": "https://stickeroid.com/uploads/pic/full-pngmart/thumb/stickeroid_5bf552536edec.png",
+                    "translation": "Банан"
+                },
+                {
+                    "id": 3,
+                    "word": "Blackberry",
+                    "image": "http://pngimg.com/uploads/blackberry/blackberry_PNG48.png",
+                    "translation": "Ежевика"
+                },
+                {
+                    "id": 4,
+                    "word": "Carrot",
+                    "image": "https://www.hipp.ru/fileadmin/_processed_/5/2/csm_ingredient_carrot_92ba20d610.png",
+                    "translation": "Морковь"
+                },
+                {
+                    "id": 5,
+                    "word": "Apple",
+                    "image": "http://pngimg.com/uploads/apple/apple_PNG12458.png",
+                    "translation": "Яблоко"
+                }
+            ], 
             "repeatScreen": true,
             "pointsNeeded": 0
         },

@@ -6,18 +6,26 @@ import { connect } from 'react-redux'
 import gstyles from '../../styles/GlobalStyles'
 import styles from '../../styles/TopicsScreen'
 import HeaderLogo from './components/HeaderLogo'
+
+
 class TopicsScreen extends Component {
 
    static navigationOptions = ({ navigation }) => ({
       headerTitle: () => {
          return (
             <HeaderLogo stars={navigation.getParam('points')} />
-         )
-      }
-   })
+            )
+         }
+      })
+      
+   navigation = this.props.navigation;
 
    goToTopicDetails = (topic) => {
-      this.props.navigation.navigate('TopicDetails', { topic: topic });
+      if (!topic.repeatScreen) {
+         this.navigation.navigate('TopicDetails', { topic: topic });
+      } else {
+         this.navigation.navigate('Repeating', {topic} );
+      }
    }
 
    topicIsOpen = ({ pointsNeeded }) => {
@@ -58,7 +66,6 @@ class TopicsScreen extends Component {
       }
    }
 
-   navigation = this.props.navigation;
 
    render() {
       const { topics } = this.props;
