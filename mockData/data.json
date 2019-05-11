@@ -124,7 +124,7 @@
 
         {
             "id": 6,
-            "name": "Перевод предложений",
+            "name": "Перевод фраз",
             "screenName": "QuestionsTranslate",
             "repeatScreen": false,
             "pointsNeeded": 600,

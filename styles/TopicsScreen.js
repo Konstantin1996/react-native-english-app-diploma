@@ -8,18 +8,63 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
 
+    mainContainer: {
+        flex: 1,
+    },
+
+    topicContainer: {
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+
+    topicInnerContainerRepeat: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center'
+    },
+
+    topicInnerContainerTask: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        alignItems: 'center'
+    },
+
+    topicTextRepeat: {
+        fontSize: 18,
+        marginLeft: 'auto'
+    },
+
+    topicTextTask: {
+        fontSize: 18,
+        marginRight: 'auto'
+    },
+
     itemTopic: {
         padding: 30,
         textAlign: 'center',
         margin: 10,
-        backgroundColor: '#d2f7f1'
+        marginRight: 50,
+        backgroundColor: '#f7e97b',
+        borderRadius: 0,
+        height: 90,
+        borderBottomRightRadius: 50,
+        justifyContent: 'center',
+        borderTopRightRadius: 50
     },
 
     itemRepeat: {
         padding: 30,
-        textAlign: 'center',
         margin: 10,
-        backgroundColor: '#e05555'
+        justifyContent: 'center',
+        marginLeft: 50,
+        height: 90,
+        backgroundColor: '#75ffb7',
+        borderBottomLeftRadius: 50,
+        borderTopLeftRadius: 50
     }
 })
 

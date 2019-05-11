@@ -1,17 +1,21 @@
 import React, { Component } from 'react'
 import { Text, View, ScrollView, TouchableOpacity } from 'react-native'
 import { Icon } from 'react-native-elements'
+import { connect } from 'react-redux'
 
 import gstyles from '../../styles/GlobalStyles'
 import styles from '../../styles/TopicsScreen'
-import { connect } from 'react-redux'
-
+import HeaderLogo from './components/HeaderLogo'
 
 class TopicsScreen extends Component {
 
-   static navigationOptions = {
-      title: 'Темы'
-   }
+   static navigationOptions = ({ navigation }) => ({
+      headerTitle: () => {
+         return (
+            <HeaderLogo stars={navigation.getParam('points')} />
+         )
+      }
+   })
 
    goToTopicDetails = (topic) => {
       this.props.navigation.navigate('TopicDetails', { topic: topic });
@@ -26,31 +30,56 @@ class TopicsScreen extends Component {
 
    render() {
       const { topics } = this.props;
-      const points = this.navigation.getParam('points');
 
       if (topics) {
          return (
-            <View>
+            <View style={styles.mainContainer}>
                <Text style={styles.textTheme}>Выберите тему</Text>
-               <Text style={styles.textTheme}> Количество очков {points}</Text>
-               <ScrollView contentContainerStyle={{ paddingVertical: 30, paddingHorizontal: 10 }}>
+               <ScrollView
+                  contentContainerStyle={{ paddingVertical: 50, paddingHorizontal: 10 }}>
                   {
                      topics.reverse().map((topic) => {
-                        const styleForItem = topic.repeatScreen ? styles.itemRepeat : styles.itemTopic;
+                        let styleForItem = topic.repeatScreen ? styles.itemRepeat : styles.itemTopic;
+                        const isDisabled = this.topicIsOpen(topic);
+                        
+                        if (isDisabled) {
+                           styleForItem = { ...styleForItem, opacity: 0.4 }
+                        }
+
                         return (
                            <TouchableOpacity
-                              disabled={this.topicIsOpen(topic)}
+                              disabled={isDisabled}
                               key={topic.id}
                               style={styleForItem}
                               topic={topics[topic]}
                               onPress={() => this.goToTopicDetails(topic)}
                            >
-                              <View style={{ flexWrap: 'wrap', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-                                 <Icon
-                                    name='star'
-                                    color='yellow'
-                                 />
-                                 <Text style={styles.textTheme}>{topic.name}</Text>
+                              <View style={styles.topicContainer}>
+
+                                 {topic.repeatScreen ? (
+                                    <View style={styles.topicInnerContainerRepeat}>
+                                       <Icon
+                                          reverse
+                                          name='graduation-cap'
+                                          size={30}
+                                          type="font-awesome"
+                                       />
+                                       <Text style={styles.topicTextRepeat} >{topic.name}</Text>
+                                    </View>
+                                 ) : (
+                                       <View
+                                          style={styles.topicInnerContainerTask}>
+                                          <Text style={styles.topicTextTask}>{topic.name}</Text>
+                                          <Icon
+                                             reverse
+                                             type="font-awesome"
+                                             name='pencil'
+                                             size={30}
+                                          />
+                                       </View>
+                                    )}
+
+
                               </View>
                            </TouchableOpacity>
                         )
