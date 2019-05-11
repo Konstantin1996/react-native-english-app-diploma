@@ -19,6 +19,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
 
+    scrollView: {
+        paddingVertical: 50,
+        paddingHorizontal: 10 
+    },
+
     topicInnerContainerRepeat: {
         flex: 1,
         flexDirection: 'row',

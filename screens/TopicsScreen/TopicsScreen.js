@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 import gstyles from '../../styles/GlobalStyles'
 import styles from '../../styles/TopicsScreen'
 import HeaderLogo from './components/HeaderLogo'
-
 class TopicsScreen extends Component {
 
    static navigationOptions = ({ navigation }) => ({
@@ -26,6 +25,39 @@ class TopicsScreen extends Component {
       return !(userPoints >= pointsNeeded);
    }
 
+   onContentSizeChange = (contentWidth, contentHeight) => {
+      this.scrollView.scrollToEnd({ animated: true });
+   }
+
+   renderTopics = (isRepeatScreen, topic) => {
+      if (isRepeatScreen) {
+         return (
+            <View style={styles.topicInnerContainerRepeat}>
+               <Icon
+                  reverse
+                  name='graduation-cap'
+                  size={30}
+                  type="font-awesome"
+               />
+               <Text style={styles.topicTextRepeat} >{topic.name}</Text>
+            </View>
+         )
+      } else {
+         return (
+            <View
+               style={styles.topicInnerContainerTask}>
+               <Text style={styles.topicTextTask}>{topic.name}</Text>
+               <Icon
+                  reverse
+                  type="font-awesome"
+                  name='pencil'
+                  size={30}
+               />
+            </View>
+         )
+      }
+   }
+
    navigation = this.props.navigation;
 
    render() {
@@ -36,12 +68,14 @@ class TopicsScreen extends Component {
             <View style={styles.mainContainer}>
                <Text style={styles.textTheme}>Выберите тему</Text>
                <ScrollView
-                  contentContainerStyle={{ paddingVertical: 50, paddingHorizontal: 10 }}>
+                  ref={ref => this.scrollView = ref}
+                  onContentSizeChange={this.onContentSizeChange}
+                  contentContainerStyle={styles.scrollView}>
                   {
                      topics.reverse().map((topic) => {
                         let styleForItem = topic.repeatScreen ? styles.itemRepeat : styles.itemTopic;
                         const isDisabled = this.topicIsOpen(topic);
-                        
+
                         if (isDisabled) {
                            styleForItem = { ...styleForItem, opacity: 0.4 }
                         }
@@ -55,31 +89,7 @@ class TopicsScreen extends Component {
                               onPress={() => this.goToTopicDetails(topic)}
                            >
                               <View style={styles.topicContainer}>
-
-                                 {topic.repeatScreen ? (
-                                    <View style={styles.topicInnerContainerRepeat}>
-                                       <Icon
-                                          reverse
-                                          name='graduation-cap'
-                                          size={30}
-                                          type="font-awesome"
-                                       />
-                                       <Text style={styles.topicTextRepeat} >{topic.name}</Text>
-                                    </View>
-                                 ) : (
-                                       <View
-                                          style={styles.topicInnerContainerTask}>
-                                          <Text style={styles.topicTextTask}>{topic.name}</Text>
-                                          <Icon
-                                             reverse
-                                             type="font-awesome"
-                                             name='pencil'
-                                             size={30}
-                                          />
-                                       </View>
-                                    )}
-
-
+                                 {this.renderTopics(topic.repeatScreen, topic)}
                               </View>
                            </TouchableOpacity>
                         )
