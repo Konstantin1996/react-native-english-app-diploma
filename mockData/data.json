@@ -86,6 +86,64 @@
             "id": 3,
             "name": "Учим части тела",
             "screenName": "Repeating",
+            "rules": [
+                {
+                    "id": 1,
+                    "word": "Beard",
+                    "image": "http://www.pngonly.com/wp-content/uploads/2017/06/Beard-Clipart-PNG-Image-01.png",
+                    "translation": "Борода"
+                },
+                {
+                    "id": 2,
+                    "word": "Nose",
+                    "image": "https://river-ent.com/wp-content/uploads/2018/05/services-nose.png",
+                    "translation": "Нос"
+                },
+                {
+                    "id": 3,
+                    "word": "Chin",
+                    "image": "https://pngimage.net/wp-content/uploads/2018/05/chin-png-3.png",
+                    "translation": "Подбородок"
+                },
+                {
+                    "id": 4,
+                    "word": "Eyes",
+                    "image": "https://avatanplus.com/files/resources/original/5a8f4fed94a6f161bfd03829.png",
+                    "translation": "Глаза"
+                },
+                {
+                    "id": 5,
+                    "word": "Hair",
+                    "image": "https://cdn130.picsart.com/266601601020211.png?r1024x1024",
+                    "translation": "Волосы"
+                },
+                {
+                    "id": 6,
+                    "word": "Finger",
+                    "image": "http://pluspng.com/img-png/png-pointing-finger-pointing-finger-png-image-43096-878.png",
+                    "translation": "Палец"
+                },
+                {
+                    "id": 7,
+                    "word": "Arm",
+                    "image": "https://pngriver.com/wp-content/uploads/2018/03/Download-Arm-PNG-Photos-For-Designing-Projects.png",
+                    "translation": "Рука"
+                },
+                {
+                    "id": 8,
+                    "word": "Lips",
+                    "image": "http://www.pngpix.com/wp-content/uploads/2016/10/PNGPIX-COM-Lips-PNG-Transparent-Image-2.png",
+                    "translation": "Губы"
+                },
+
+                {
+                    "id": 8,
+                    "word": "Cheeks",
+                    "image": "https://freepngimg.com/thumb/blushing_emoji/36733-2-blushing-emoji-transparent-background.png",
+                    "translation": "Щёки"
+                }
+                
+            ], 
             "repeatScreen": true,
             "pointsNeeded": 200
         },
