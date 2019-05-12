@@ -20,7 +20,7 @@ export default class Loading extends React.Component {
                     const nick = snapshot.val().nick;
                     const progress = snapshot.val().progress;
                     const points = snapshot.val().points;
-                    navigation.navigate('Welcome', { nick, progress, points} );
+                    navigation.navigate('Welcome', { nick, progress, points, user} );
 
                     // Логика должна быть такая
                     // if(snapshot.val().progress === 0) {
@@ -33,6 +33,7 @@ export default class Loading extends React.Component {
                 navigation.navigate('Login');
             }
         })
+        
     }
 
     render() {

@@ -6,6 +6,8 @@ import { fetchTopics } from '../../actions/FetchTopics'
 
 import firebase from 'firebase'
 
+import { getCurrentUser } from '../../actions/fetchUserActions'
+
 class WelcomeScreen extends Component {
 
   state = {
@@ -26,13 +28,18 @@ class WelcomeScreen extends Component {
         })
       })
       .catch(error => console.log(error));
+
+      const user = this.navigation.getParam('user');
+      this.props.getCurrentUser(user.uid);
   }
 
-  render() {
-    const { navigation } = this.props;
+  navigation = this.props.navigation
 
-    const nick = navigation.getParam('nick', 'default');
-    const points = navigation.getParam('points');
+  render() {
+    // const { navigation } = this.props;
+
+    const nick = this.navigation.getParam('nick', 'default');
+    const points = this.navigation.getParam('points');
 
     return (
 
@@ -45,7 +52,7 @@ class WelcomeScreen extends Component {
         </View>
 
         <View style={{ flex: 1, justifyContent: "flex-end", marginBottom: 30 }}>
-          <Button title="Начать" onPress={() => this.props.navigation.navigate('Topics', { points })} />
+          <Button title="Начать" onPress={() => this.navigation.navigate('Topics', { points })} />
         </View>
       </View>
     )
@@ -62,7 +69,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchData: (data) => dispatch(fetchTopics(data)),
-    incrementData: () => dispatch(increment())
+    incrementData: () => dispatch(increment()),
+    getCurrentUser: (uid) => dispatch(getCurrentUser(uid))
   }
 }
 

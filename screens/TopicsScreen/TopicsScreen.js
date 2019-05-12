@@ -7,29 +7,34 @@ import gstyles from '../../styles/GlobalStyles'
 import styles from '../../styles/TopicsScreen'
 import HeaderLogo from './components/HeaderLogo'
 
-
 class TopicsScreen extends Component {
+
+   constructor(props) {
+      super(props);
+
+      this.navigation = props.navigation;
+   }
+
 
    static navigationOptions = ({ navigation }) => ({
       headerTitle: () => {
          return (
-            <HeaderLogo stars={navigation.getParam('points')} />
-            )
-         }
-      })
-      
-   navigation = this.props.navigation;
+            <HeaderLogo points={navigation.getParam('points')} />
+         )
+      }
+   })
 
    goToTopicDetails = (topic) => {
       if (!topic.repeatScreen) {
          this.navigation.navigate('TopicDetails', { topic: topic });
       } else {
-         this.navigation.navigate('Repeating', {topic} );
+         this.navigation.navigate('Repeating', { topic });
       }
    }
 
    topicIsOpen = ({ pointsNeeded }) => {
-      const userPoints = this.navigation.getParam('points');
+      const userPoints = this.props.navigation.state.params.points;
+      console.log('userPoints ', this.props.points)
       return !(userPoints >= pointsNeeded);
    }
 
@@ -66,10 +71,10 @@ class TopicsScreen extends Component {
       }
    }
 
-
    render() {
       const { topics } = this.props;
-
+      console.log('this.props.navigation.state', this.props.navigation.state.params.points);
+      console.log('usersReducerPoints: ', this.props.points);
       if (topics) {
          return (
             <View style={styles.mainContainer}>
@@ -79,7 +84,7 @@ class TopicsScreen extends Component {
                   onContentSizeChange={this.onContentSizeChange}
                   contentContainerStyle={styles.scrollView}>
                   {
-                     topics.reverse().map((topic) => {
+                     topics.map((topic) => {
                         let styleForItem = topic.repeatScreen ? styles.itemRepeat : styles.itemTopic;
                         const isDisabled = this.topicIsOpen(topic);
 
@@ -117,8 +122,9 @@ class TopicsScreen extends Component {
 
 const mapStateToProps = (state) => {
    return {
-      topics: state.basicReducer.data
+      topics: state.basicReducer.data,
+      points: state.usersReducer.user.points,
    }
 };
 
-export default connect(mapStateToProps, null)(TopicsScreen);
+export default connect(mapStateToProps)(TopicsScreen);
