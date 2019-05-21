@@ -7,13 +7,14 @@ export default class Loading extends React.Component {
 
     componentDidMount() {
         const { navigation } = this.props;
+        console.log('я тут')
         firebase.auth().onAuthStateChanged(user => {
             console.log('user', user);
             
             if (user) {
                 console.log('Текущий пользователь ', user);
                 console.log('uid', user.uid);
-                
+                console.log(firebase.database().ref())
                 firebase.database().ref('users/'+user.uid).once('value').then(snapshot => {
                     console.log('snapshot',snapshot)
                     console.log('value',snapshot.val());
@@ -32,6 +33,7 @@ export default class Loading extends React.Component {
             } else {
                 navigation.navigate('Login');
             }
+
         })
         
     }

@@ -24,11 +24,15 @@ export default class TopicDetailsSreen extends Component {
       }}>
         <ImageBackground source={require('../../styles/images/books.png')} style={{ width: 200, height: 200, position: 'absolute', top: 70 }} />
         <View style={styles.textContainer}>
-          <Text style={gstyle.globalText}>{topic.description}</Text>
+
+            <Text style={{...gstyle.globalText, fontWeight: 'bold'}}>Описание</Text>
+
+            <Text style={styles.description}>{topic.description}</Text>
+
         </View>
         <View style={styles.btnContainer}>
           {/* Хардкод QuestionTranslate добавил поле в data.json*/}
-          <Button title="Тест!" onPress={() => this.props.navigation.navigate(topic.screenName,
+          <Button title="Приступить" onPress={() => this.props.navigation.navigate(topic.screenName,
             { questionList: topic.questionList, questionNumber: 0, topic: topic }
           )} />
           {/* <Button title="Обучение" onPress={() => this.props.navigation.navigate('Repeating',

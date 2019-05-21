@@ -28,7 +28,7 @@ class TopicsScreen extends Component {
       if (!topic.repeatScreen) {
          this.navigation.navigate('TopicDetails', { topic: topic });
       } else {
-         this.navigation.navigate('Repeating', { topic });
+         this.navigation.navigate(topic.screenName, { topic });
       }
    }
 

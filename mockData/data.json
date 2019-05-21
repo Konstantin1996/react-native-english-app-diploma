@@ -6,14 +6,14 @@
             "screenName": "Repeating",
             "rules": [
                 {
-                    "id": 1,
+                    "id ": 1,
                     "word": "Strawberry",
                     "image": "https://i.pinimg.com/originals/6b/70/63/6b7063df22799fbf31473f6606433a00.png",
                     "translation": "Клубника"
                 },
                 {
                     "id": 2,
-                    "word": "Bannana",
+                    "word": "Banana",
                     "image": "https://stickeroid.com/uploads/pic/full-pngmart/thumb/stickeroid_5bf552536edec.png",
                     "translation": "Банан"
                 },
@@ -35,11 +35,10 @@
                     "image": "http://pngimg.com/uploads/apple/apple_PNG12458.png",
                     "translation": "Яблоко"
                 }
-            ], 
+            ],
             "repeatScreen": true,
             "pointsNeeded": 0
         },
-
         {
             "id": 2,
             "name": "Верно-неверно",
@@ -47,7 +46,13 @@
             "repeatScreen": false,
             "pointsNeeded": 100,
             "description": "Попробуйте не ошибиться в переводе слов",
-            "allQuestions": ["Strawberry","Bannana","Blackberry","Carrot", "Apple"],
+            "allQuestions": [
+                "Strawberry",
+                "Bannana",
+                "Blackberry",
+                "Carrot",
+                "Apple"
+            ],
             "questionList": [
                 {
                     "id": 1,
@@ -81,7 +86,6 @@
                 }
             ]
         },
-
         {
             "id": 3,
             "name": "Учим части тела",
@@ -135,19 +139,16 @@
                     "image": "http://www.pngpix.com/wp-content/uploads/2016/10/PNGPIX-COM-Lips-PNG-Transparent-Image-2.png",
                     "translation": "Губы"
                 },
-
                 {
                     "id": 8,
                     "word": "Cheeks",
                     "image": "https://freepngimg.com/thumb/blushing_emoji/36733-2-blushing-emoji-transparent-background.png",
                     "translation": "Щёки"
                 }
-                
-            ], 
+            ],
             "repeatScreen": true,
             "pointsNeeded": 200
         },
-
         {
             "id": 4,
             "name": "Переведи слово",
@@ -159,59 +160,93 @@
                 {
                     "id": 0,
                     "question": "Beard",
+                    "image": "http://www.pngonly.com/wp-content/uploads/2017/06/Beard-Clipart-PNG-Image-01.png",
                     "answer": "Борода"
                 },
                 {
                     "id": 1,
                     "question": "Nose",
+                    "image": "https://river-ent.com/wp-content/uploads/2018/05/services-nose.png",
                     "answer": "Нос"
                 },
                 {
                     "id": 2,
                     "question": "Chin",
+                    "image": "https://pngimage.net/wp-content/uploads/2018/05/chin-png-3.png",
                     "answer": "Подбородок"
                 },
                 {
                     "id": 3,
                     "question": "Eyes",
+                    "image": "https://avatanplus.com/files/resources/original/5a8f4fed94a6f161bfd03829.png",
                     "answer": "Глаза"
                 },
                 {
                     "id": 4,
                     "question": "Hair",
+                    "image": "https://cdn130.picsart.com/266601601020211.png?r1024x1024",
                     "answer": "Волосы"
                 },
                 {
                     "id": 5,
                     "question": "Arm",
+                    "image": "https://pngriver.com/wp-content/uploads/2018/03/Download-Arm-PNG-Photos-For-Designing-Projects.png",
                     "answer": "Рука"
                 },
                 {
                     "id": 6,
                     "question": "Finger",
+                    "image": "http://pluspng.com/img-png/png-pointing-finger-pointing-finger-png-image-43096-878.png",
                     "answer": "Палец"
                 },
                 {
                     "id": 7,
                     "question": "Lips",
+                    "image": "http://www.pngpix.com/wp-content/uploads/2016/10/PNGPIX-COM-Lips-PNG-Transparent-Image-2.png",
                     "answer": "Губы"
                 },
                 {
                     "id": 8,
                     "question": "Cheeks",
+                    "image": "https://freepngimg.com/thumb/blushing_emoji/36733-2-blushing-emoji-transparent-background.png",
                     "answer": "Щёки"
                 }
             ]
-        }, 
-
+        },
         {
             "id": 5,
             "name": "Учим грамматику",
-            "screenName": "Repeating",
+            "screenName": "Grammar",
+            "questionList": [],
+            "rules": [
+                {
+                    "id": 0,
+                    "topic": "Present simple",
+                    "definition": "Present Simple Tense — простое настоящее время в английском языке. Это время используется, когда мы говорим о действиях, которые происходят регулярно.",
+                    "whenToUse": [
+                        {
+                            "rule": "Актуальные в настоящий момент обстоятельства",
+                            "example": "He works for a bank. — Он работает в банке."
+                        },
+                        {
+                            "rule": "Регулярно повторяющееся действие",
+                            "example": "He reads newspapers every morning. — Каждое утро он читает газеты."
+                        },
+                        {
+                            "rule": "Факт, который верен всегда",
+                            "example": "He works for a bank. — Он работает в банке."
+                        },
+                        {
+                            "rule": "Будущие события, которые происходят по графику или расписанию",
+                            "example": "He works for a bank. — Он работает в банке."
+                        }
+                    ],
+                    "examples": []
+                }
+            ],
             "repeatScreen": true,
             "pointsNeeded": 400
         },
-
         {
             "id": 6,
             "name": "Перевод фраз",
@@ -232,10 +267,9 @@
                 }
             ],
             "rightAnswers": [
-                "Мы надеемся встретить твоих друзей снова", "В этом доме есть кот"
+                "Мы надеемся встретить твоих друзей снова",
+                "В этом доме есть кот"
             ]
         }
     ]
-
-
 }

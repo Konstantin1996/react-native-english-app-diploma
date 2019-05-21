@@ -46,9 +46,10 @@ class WelcomeScreen extends Component {
       <View style={{ flex: 1, alignItems: "center" }}>
 
         <ImageBackground source={require('../../styles/images/graduate.png')} style={{ position: 'absolute', width: 240, height: 240, top: 10 }} />
-        <View style={{ flex: 5, justifyContent: 'flex-end' }}>
-          <Text style={styles.viewWelcomeText}> Добро пожаловать {nick}, в приложение, которое поможет вам улучшить знания по английскому языку.</Text>
-          <Text style={styles.viewWelcomeText}> Нажмите кнопку начать</Text>
+        <View style={{ flex: 5, justifyContent: 'flex-end', marginHorizontal: 5 }}>
+          <Text style={styles.viewWelcomeText}>Добро пожаловать {nick}!</Text>
+          <Text style={styles.viewWelcomeText}>Это приложение поможет вам улучшить знания по английскому языку.</Text>
+          <Text style={styles.viewWelcomeText}>Нажмите кнопку начать</Text>
         </View>
 
         <View style={{ flex: 1, justifyContent: "flex-end", marginBottom: 30 }}>

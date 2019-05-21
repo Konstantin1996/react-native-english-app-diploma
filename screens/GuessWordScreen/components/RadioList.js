@@ -37,13 +37,18 @@ export class RadioList extends Component {
         radio_props.sort(() => Math.random() - 0.5);
 
         return (
-            <View>
+            <View style={{marginBottom: 20}}>
                 <RadioForm
                     radio_props={radio_props}
                     initial={false}
                     labelHorizontal={true}
-                    formHorizontal={false}
+                    formHorizontal={true}
                     onPress={this.toggleRadio}
+                    buttonStyle={{width: 20, height: 20}}
+                    selectedButtonColor={'#8cce4e'}
+                    buttonColor={'#cec8c8'}
+                    labelStyle={{color: 'black', fontSize: 18, paddingLeft: 10, paddingRight: 10 }}
+                    buttonSize={20}
                 />
             </View>
         )

@@ -11,7 +11,8 @@ import GuessWordScreen from '../screens/GuessWordScreen/GuessWordScreen.js'
 import TrueFalseScreen from '../screens/TrueFalseScreen/TrueFalseScreen'
 import LoginScreen from '../screens/LoginScreen/LoginScreen'
 import LoadingScreen from '../screens/LoadingScreen/LoadingScreen'
-import SignUpScreen from '../screens/SignUpScreen/SignUpScreen';
+import SignUpScreen from '../screens/SignUpScreen/SignUpScreen'
+import GrammarScreen from '../screens/GrammarScreen/GrammarScreen'
 
 const HomeStack = createStackNavigator(
     {
@@ -24,6 +25,7 @@ const HomeStack = createStackNavigator(
       QuestionsTranslate: QuestionsTranslateScreen,
       Congrats: CongratsScreen,
       Repeating: RepeatingScreen,
+      Grammar: GrammarScreen,
       GuessWord: GuessWordScreen,
       TrueFalseGame: TrueFalseScreen
     },
